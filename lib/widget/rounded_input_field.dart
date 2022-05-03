@@ -9,13 +9,13 @@ class RoundedInputField extends StatelessWidget {
   bool obfuscated;
   bool multiline;
   RoundedInputField(
-      {Key key,
+      {Key? key,
       this.obfuscated = false,
-      this.hintText,
+      required this.hintText,
       this.multiline = false,
       this.text = '',
       this.icon = Icons.comment_rounded,
-      this.onChanged,
+      required this.onChanged,
       this.width = 0.8})
       : super(key: key);
 

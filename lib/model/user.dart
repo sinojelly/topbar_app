@@ -8,11 +8,11 @@ class User {
   String autoLogin = "N";
 
   User(
-      {this.username,
-      this.password,
-      this.code,
+      {required this.username,
+      required this.password,
+      required this.code,
       this.autoLogin = 'N',
-      this.type,
+      this.type = "default",
       this.locale = 'en_UK',
       this.theme = "BASE"});
 
@@ -53,7 +53,7 @@ class User {
     if (other is! User) {
       return false;
     }
-    return code + username == (other as User).code + (other as User).username;
+    return code + username == other.code + other.username;
   }
 
   @override

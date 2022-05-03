@@ -34,7 +34,7 @@ class UserDAO {
   }
 
   Future<List<User>> getAllUsers() async {
-    final recordSnapshot = await _userFolder.find(await _db);
+    final List<RecordSnapshot<int, Map<String, dynamic>>> recordSnapshot = await _userFolder.find(await _db);
     return recordSnapshot.map((snapshot) {
       final user = User.fromJson(snapshot.value);
       return user;

@@ -6,10 +6,10 @@ import 'home_ui.dart';
 
 // ignore: must_be_immutable
 class LoginScreen extends StatelessWidget {
-  HomeUI homeUI;
+  HomeUI? homeUI;
   final LoginController ctrl = Get.find();
 
-  LoginScreen({Key key}) : super(key: key);
+  LoginScreen({Key? key}) : super(key: key);
 
   Widget _showAdvice(BuildContext context) {
     Widget w;
@@ -55,7 +55,7 @@ class LoginScreen extends StatelessWidget {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (_) {
-          return homeUI;
+          return homeUI!;
         } //=> HomeScreen(),
             ),
       );

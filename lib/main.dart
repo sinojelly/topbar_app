@@ -8,6 +8,21 @@ import 'common/i18n_text.dart';
 import 'common/themes.dart';
 import 'common/setup.dart';
 
+
+import 'package:logger/logger.dart';
+import 'package:topbar_app/api/task_api.dart';
+import 'package:dio/dio.dart';
+
+final logger = Logger();
+// void main(List<String> args) {
+//   final dio = Dio(); // Provide a dio instance
+//   dio.options.headers["Demo-Header"] = "demo header"; // config your dio headers globally
+//   final client = RestClient(dio);
+//
+//   client.getTasks().then((it) => logger.i(it));
+// }
+
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   User us = await UserService.sing().firstUser();

@@ -6,13 +6,13 @@ class IconMenuItem extends StatelessWidget {
   IconData icon;
   Function onTap = () {};
 
-  IconMenuItem({Key key, this.title, this.row1, this.icon, this.onTap})
+  IconMenuItem({Key? key, required this.title, required this.row1, required this.icon, required this.onTap})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        onTap: onTap,
+        onTap: onTap as void Function()?,
         child: Container(
           //color: Colors.white,
           margin: EdgeInsets.all(2.0),
@@ -29,7 +29,7 @@ class IconMenuItem extends StatelessWidget {
             ],
             border: Border.all(
               width: 1.0,
-              color: Colors.grey[200],
+              color: Colors.grey[200]!,
             ),
           ),
           child: Row(

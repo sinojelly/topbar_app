@@ -10,16 +10,16 @@ class AccountController extends GetxController {
   var isDefaultUser = false.obs;
   var usernameText = ''.obs;
   var autologin = false.obs;
-  User currentUser;
+  User? currentUser;
 
   @override
   void onInit() {
     // called immediately after the widget is allocated memory
     UserService.sing().listAll().then((value) {
       this.currentUser = value.first;
-      this.usernameText.value = this.currentUser.username;
-      this.autologin.value = 'Y' == this.currentUser.autoLogin;
-      this.user = this.currentUser.username;
+      this.usernameText.value = this.currentUser!.username;
+      this.autologin.value = 'Y' == this.currentUser!.autoLogin;
+      this.user = this.currentUser!.username;
     });
     super.onInit();
   }
@@ -41,7 +41,7 @@ class AccountController extends GetxController {
   String _evaluateOldPSWFormData() {
     String res = 'RES_OK';
 
-    if (oldPassword == '' || oldPassword != currentUser.password) {
+    if (oldPassword == '' || oldPassword != currentUser!.password) {
       res = 'NO_OK_OLD_PSW';
     }
     return res;
@@ -63,13 +63,13 @@ class AccountController extends GetxController {
   }
 
   String _eval(List<Function> check) {
-    String res = 'RES_OK';
+    String? res = 'RES_OK';
     int i = 0;
     while (res == 'RES_OK' && i < check.length) {
       res = check[i].call();
       i++;
     }
-    return res;
+    return res!;
   }
 
   Future<String> evaluateAndSaveFormData() async {
@@ -82,12 +82,12 @@ class AccountController extends GetxController {
       ..add(_evaluatePSWFormData);
     res = _eval(chain);
     if (res == 'RES_OK' || res == 'RES_OK_EMPTY') {
-      currentUser.username = user;
+      currentUser!.username = user;
       if ('RES_OK' == res) {
-        currentUser.password = password;
+        currentUser!.password = password;
       }
-      currentUser.type = 'no_default';
-      res = await UserService.sing().updateUser(currentUser);
+      currentUser!.type = 'no_default';
+      res = await UserService.sing().updateUser(currentUser!);
       usernameText.value = user;
       password = '';
       confirmedPassword = '';

@@ -9,13 +9,13 @@ class RImageMenuItem extends StatelessWidget {
   Function onTap = () {};
 
   RImageMenuItem(
-      {Key key,
-      this.title,
+      {Key? key,
+      required this.title,
       this.row1 = '',
       this.langValue = '',
-      this.imageUrl,
-      this.borderColor,
-      this.onTap})
+      required this.imageUrl,
+      required this.borderColor,
+      required this.onTap})
       : super(key: key);
 
   Widget _buildRoundImage(BuildContext context) {
@@ -52,7 +52,7 @@ class RImageMenuItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-        onTap: onTap,
+        onTap: onTap as void Function()?,
         child: Container(
           //color: Colors.white,
           margin: EdgeInsets.all(2.0),

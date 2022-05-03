@@ -7,7 +7,7 @@ import 'package:topbar_app/widget/toast_x.dart';
 
 class EditAccountForm extends StatelessWidget {
   EditAccountForm({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   AccountController ctrl = Get.find();
@@ -105,7 +105,7 @@ class EditAccountForm extends StatelessWidget {
                   value: ctrl.autologin.value,
                   onChanged: (b) {
                     ctrl.autologin.value = b;
-                    ctrl.currentUser.autoLogin = b ? 'Y' : 'N';
+                    ctrl.currentUser!.autoLogin = b ? 'Y' : 'N';
                   }),
               Text('autologin_enabled'.tr),
             ],

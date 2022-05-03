@@ -6,7 +6,7 @@ class LoginController extends GetxController {
   var user = '';
   var passw = '';
   var isDefaultUser = false.obs;
-  String autologin;
+  String autologin = 'N';
   String sUser = '';
   String sPsw = '';
 

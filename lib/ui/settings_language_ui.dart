@@ -32,7 +32,7 @@ class SettingsLanguageUI extends StatelessWidget {
       body: Column(
         children: [
           Obx(() {
-            Color bc = Colors.grey[200];
+            Color bc = Colors.grey[200]!;
             if (ctrl.loacelVal.value == 'it_IT') {
               bc = Theme.of(context).primaryColorDark;
             }
@@ -46,7 +46,7 @@ class SettingsLanguageUI extends StatelessWidget {
                 });
           }),
           Obx(() {
-            Color bc = Colors.grey[200];
+            Color bc = Colors.grey[200]!;
             if (ctrl.loacelVal.value == 'en_UK') {
               bc = Theme.of(context).primaryColorDark;
             }

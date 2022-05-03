@@ -7,7 +7,7 @@ import 'login_screen.dart';
 import 'package:get/get.dart';
 
 class HomeUI extends StatelessWidget {
-  HomeUI({Key key, this.title}) : super(key: key);
+  HomeUI({Key? key, required this.title}) : super(key: key);
   final String title;
 
   IncrementController ctrl = Get.find();

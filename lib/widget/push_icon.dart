@@ -5,14 +5,14 @@ class PushIcon extends StatelessWidget {
   Function onTap = () {};
   Color color;
   double iconSize;
-  PushIcon({Key key, this.icon, this.onTap, this.color, this.iconSize})
+  PushIcon({Key? key, required this.icon, required this.onTap, required this.color, required this.iconSize})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       radius: 45.0,
-      onTap: onTap,
+      onTap: onTap as void Function()?,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,

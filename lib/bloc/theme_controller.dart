@@ -11,7 +11,7 @@ class ThemeController extends GetxController {
       var newIdx = (idx + 1) % length;
 
       user.theme = vec[newIdx];
-      Get.changeTheme(THM[vec[newIdx]]);
+      Get.changeTheme(THM[vec[newIdx]]!);
       UserService.sing().updateUser(user);
     });
   }

@@ -14,7 +14,7 @@ class UserDatabase {
   static UserDatabase get instance => _singleton;
 
   // Completer is used for transforming synchronous code into asynchronous code.
-  Completer<Database> _dbOpenCompleter;
+  Completer<Database>? _dbOpenCompleter;
 
   // A private constructor. Allows us to create instances of AppDatabase
   // only from within the AppDatabase class itself.
@@ -30,7 +30,7 @@ class UserDatabase {
       _openDatabase();
     }
 
-    return _dbOpenCompleter.future;
+    return _dbOpenCompleter!.future;
   }
 
   Future _openDatabase() async {
@@ -53,6 +53,6 @@ class UserDatabase {
     });
 
     // Any code awaiting the Completer's future will now start executing
-    _dbOpenCompleter.complete(database);
+    _dbOpenCompleter!.complete(database);
   }
 }
